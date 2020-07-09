@@ -4380,8 +4380,8 @@ static int mcp25xxfd_can_probe(struct spi_device *spi)
 		goto error_probe;
 	}
 
-	/* setting up GPIO+INT as PUSHPULL , TXCAN PUSH/PULL, no Standby */
-	priv->regs.iocon = 0;
+	/* setting up GPIO+INT as PUSHPULL , TXCAN PUSH/PULL, enable Standby */
+	priv->regs.iocon = MCP25XXFD_IOCON_XSTBYEN;
 
 	/* SOF/CLOCKOUT pin 3 */
 	if (priv->config.clock_odiv < 1)
